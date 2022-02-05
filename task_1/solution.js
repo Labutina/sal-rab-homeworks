@@ -25,7 +25,7 @@ function addInCartCountChange(value) {
 
     let newValue;
     newValue = oldValue;
-    newValue = newValue + +;
+    newValue = newValue + 1;
 
     // Конец решения задания №1.2.
 
