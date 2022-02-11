@@ -42,22 +42,21 @@
 
 
 function sendRequest(name, phone, address, goods, sum) {
-    let data = {client: "",order: {}, goods: [] ,};
+    let data = {client: "",order: {}, goods: []};
 
     let countOfGoods = goods.length;
 
     for (let i = 0; i <= countOfGoods; i += 1) {
-        data.goods.push(goods[i].title);
+        data.goods[i]={"title":goods.title[i], "count":goods.count[i]};
     }
 
-data.goods = title+""+count;
 data.client=name+""+phone;
 
     data.order.address = address;
     data.order.sum = name + phone + address + goods + sum;
    
 
-    let jsonData = JSON.stringify({data});
+    let jsonData = JSON.stringify(data);
 
     return jsonData;
 }
