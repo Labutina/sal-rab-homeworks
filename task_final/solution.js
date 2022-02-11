@@ -5,10 +5,15 @@
 // - объект с адресом доставки: {street, house, entrance, floor, flat}
 // - список товаров в заказе
 // - стоимость заказа с учетом скидок и доставки
+
+
+
 // Как результат функции требуется вернуть JSON,
 // cформированный в соответствии с правилами:
 // Объект data содержит все данные
-// В объекте data есть свойства:
+// 
+
+//В объекте data есть свойства:
 // - client - строка, имя клиента + телефон клиента;
 // - order - объект, содержащий данные о заказе:
 //     - address - строка с адресом доставки, записанным человекопонятным языком (как в примере)
@@ -16,6 +21,7 @@
 // - goods: массив объектов с информацией о позициях заказа:
 //     - title - название позиции
 //     - count - количество в заказе
+//let data = {client: {name, phone}, order: {address, sum} goods: []};
 // например:
 // {
 //    "data": {
@@ -33,8 +39,10 @@
 //    }
 // }
 
+
+
 function sendRequest(name, phone, address, goods, sum) {
-    let data = {goods: [], order: {}};
+    let data = {client: "",order: {}, goods: [] ,};
 
     let countOfGoods = goods.length;
 
@@ -42,12 +50,14 @@ function sendRequest(name, phone, address, goods, sum) {
         data.goods.push(goods[i].title);
     }
 
+data.goods = title+""+count;
+data.client=name+""+phone;
+
     data.order.address = address;
     data.order.sum = name + phone + address + goods + sum;
+   
 
-    data.client = 'Иван';
-
-    let jsonData = JSON.stringify(data);
+    let jsonData = JSON.stringify({data});
 
     return jsonData;
 }
